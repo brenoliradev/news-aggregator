@@ -1,0 +1,58 @@
+.feed-wrap {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    .feed-form {
+        display: flex;
+
+        padding-top: 4vh;
+
+        
+        .form-textfield {
+            width: 30vw;
+            height: 56px;
+        }
+        .form-responsive {
+            display: flex;
+        
+            .form-select {
+                padding-left: 5px;
+                height: 56px;
+                width: 9vw;
+            }
+            .form-button {
+                margin-top: -1px;
+                padding-left: 5px;
+                height: 55px;
+                width: 9vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .feed-form {
+        flex-direction: column !important;
+
+        .form-textfield {
+            width: 90vw !important;
+        }
+        .form-responsive {
+            width: 90vw !important;
+            justify-content: space-between;
+
+            .form-select {
+                width: 58vw !important;
+                padding-left: 0px !important;
+                margin-top: 10px !important;
+            }
+            .form-button {
+                width: 31vw !important;
+                margin-top: 9px !important;
+            }
+        }
+    }
+}
