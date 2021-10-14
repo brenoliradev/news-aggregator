@@ -5,9 +5,7 @@ import './compoents/feedPage/feedPage.scss';
 
 const App = () => {
     return (
-        <>
-            <FeedPage/>
-        </>
+        <FeedPage/>
     )
 }
 

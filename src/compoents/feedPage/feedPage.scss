@@ -1,39 +1,67 @@
-.feed-wrap {
-    width: 100vw;
-    height: 100vh;
+@import url(https://fonts.googleapis.com/css2?family=Rosario:wght@300&display=swap);
 
-    display: flex;
-    justify-content: center;
+.main-wrap {
+    min-height: 100vh;
+    
+    header {
+        background-color: #020202;
+        min-height: 80px;
+    }
 
-    .feed-form {
+    .feed-text {
+        font-size: 13vh;
+        font-weight: 300;
+
+        font-family: 'Rosario', sans-serif;
+
+        text-align: center;
+
+        margin-top: 2vh;
+    }
+
+        .feed-wrap {
+        width: 100vw;
+
         display: flex;
+        justify-content: center;
 
-        padding-top: 4vh;
-
-        
-        .form-textfield {
-            width: 30vw;
-            height: 56px;
-        }
-        .form-responsive {
+        .feed-form {
             display: flex;
-        
-            .form-select {
-                padding-left: 5px;
+
+            padding-top: 3vh;
+            
+            .form-textfield {
+                width: 30vw;
                 height: 56px;
-                width: 9vw;
             }
-            .form-button {
-                margin-top: -1px;
-                padding-left: 5px;
-                height: 55px;
-                width: 9vw;
+            .form-responsive {
+                display: flex;
+            
+                .form-select {
+                    padding-left: 5px;
+                    height: 56px;
+                    width: 9vw;
+                }
+                .form-button {
+                    margin-top: -1px;
+                    padding-left: 5px;
+                    height: 55px;
+                    width: 9vw;
+                }
             }
         }
     }
 }
 
 @media screen and (max-width: 800px) {
+    header {
+        min-height: 64px !important;
+    }
+    
+    .feed-text {
+        margin-bottom: 1vh !important;
+    }
+    
     .feed-form {
         flex-direction: column !important;
 
