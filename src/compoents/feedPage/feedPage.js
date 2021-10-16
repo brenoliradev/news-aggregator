@@ -25,8 +25,8 @@ const FeedPage = () => {
         },
         validationSchema: SimpleSchema,
         onSubmit: values => {
-            // NewsCatcher(values.subject, lang);
-            setNews(["123", "123", "123"])
+            setNews(NewsCatcher(values.subject, lang));
+            console.log(setNews);
         }
     })
     

@@ -15,14 +15,11 @@ const NewsCatcher = async (subject, lang) => {
 
     axios.request(options)
     .then(function (response) {
-            let newsData = null;
-            try {
-                newsData = JSON.parse(response); 
-                return newsData;
-            } catch (e) {
-                newsData = response;
-                console.log(newsData)
-            }
+            if (!response) return {};
+            if (typeof response === 'object') return (response);
+            if (typeof response === 'string') return JSON.parse(response);
+
+            return {};
         }).catch(function (error) { 
             console.error(error);
     });
