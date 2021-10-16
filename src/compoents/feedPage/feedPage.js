@@ -1,5 +1,6 @@
-import React from "react";
-import newsCatcher from "../newscatcherAPI/newscatcher";
+import React, { useState } from "react";
+import NewsCatcher from "../newsCatcherAPI/newsCatcher";
+import NewsAggregator from '../newsAggregator/newsAggregator'
 
 import { Button, TextField, MenuItem } from '@mui/material';
 import { useFormik } from "formik";
@@ -12,6 +13,7 @@ const SimpleSchema = Yup.object().shape({
 
 const FeedPage = () => {
     const [lang, setLang] = React.useState('en');
+    const [news, setNews] = useState([]);
 
     const handleChange = (event) => {
         setLang(event.target.value);
@@ -23,8 +25,9 @@ const FeedPage = () => {
         },
         validationSchema: SimpleSchema,
         onSubmit: values => {
-            // newsCatcher(values.subject, lang)
-        },
+            // NewsCatcher(values.subject, lang);
+            setNews(["123", "123", "123"])
+        }
     })
     
     return (
@@ -85,6 +88,9 @@ const FeedPage = () => {
                     </div>
                 </form>
             </div>
+            <NewsAggregator
+                news={news}
+            />
         </div>
     )
 }

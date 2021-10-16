@@ -1,6 +1,6 @@
 var axios = require("axios").default;
 
-const newsCatcher = (subject, lang) => {
+const NewsCatcher = async (subject, lang) => {
     const apiKey = process.env.REACT_APP_NEWSCATCHER_API_KEY;
 
     var options = {
@@ -14,12 +14,18 @@ const newsCatcher = (subject, lang) => {
     };
 
     axios.request(options)
-        .then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
+    .then(function (response) {
+            let newsData = null;
+            try {
+                newsData = JSON.parse(response); 
+                return newsData;
+            } catch (e) {
+                newsData = response;
+                console.log(newsData)
+            }
+        }).catch(function (error) { 
             console.error(error);
     });
 }
 
-
-export default newsCatcher;
+export default NewsCatcher;
