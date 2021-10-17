@@ -33,7 +33,8 @@ const FeedPage = () => {
             completeResponse.push(titleResponse);
             completeResponse.push(linksResponse);
 
-            setNews(completeResponse);   
+            setNews(completeResponse);
+            setIndex(0);   
         }) 
     }
 
