@@ -6,5 +6,4 @@
   * Material UI + Formik + Yup.
 
 * To do: 
-  * UI;
-  * Show news which the API responses.
+  * Some refactor and deploy.
