@@ -2,7 +2,7 @@
 
 * Using:
   * React / Node;
-  * Axios + Newscatcher API;
+  * Axios + [NewsCatcher API](https://rapidapi.com/organization/newscatcher-api);
   * Material UI + Formik + Yup.
 
 * To do: 
