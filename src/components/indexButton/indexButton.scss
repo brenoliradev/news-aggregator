@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+.panel-div {
+    display: flex;
+
+    align-items: center;
+
+    .panel-text {
+        font-style: 'Crimson Text', serif;
+        font-size: 23px;
+        margin-bottom: 2px;
+    }
+}

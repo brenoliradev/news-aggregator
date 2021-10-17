@@ -20,43 +20,26 @@ const FeedPage = () => {
     const callApi = (values, lang) => {
         NewsCatcher(values, lang)
         .then(response => { 
+            const titleResponse = [];
             const linksResponse = [];
-            const authorResponse = [];
-            const mediaResponse = [];
             const completeResponse = [];
 
-            console.log(response);
-
-            for (let i = 0; i < 50; i++) {
-                authorResponse.push(response.articles[i].author);
+            // Catches the keys and turn it on a multidimensional-array
+            for (let i = 0; i < response.articles.length; i++) {
+                titleResponse.push(response.articles[i].title);
                 linksResponse.push(response.articles[i].link);
-                mediaResponse.push(response.articles[i].media);
             }
 
-            completeResponse.push(authorResponse);
+            completeResponse.push(titleResponse);
             completeResponse.push(linksResponse);
-            completeResponse.push(mediaResponse);
+
             setNews(completeResponse);   
-            console.log(news)
         }) 
     }
 
     if (firstLoad === 0) {
-        // window.onload = callApi("technology", lang)
-        // alert("fistLoad")
+        window.onload = callApi("technology", lang);
         setLoadCount(1);
-    }
-
-    const handleChange = (event) => {
-        setLang(event.target.value);
-    };
-
-    const addIndex = () => {
-        setIndex(indexVariable + 10);
-    }
-
-    const subtractIndex = () => {
-        setIndex(indexVariable - 10);
     }
     
     const formik = useFormik({
@@ -70,11 +53,20 @@ const FeedPage = () => {
         }
     })
     
+    const handleChange = (event) => {
+        setLang(event.target.value);
+    };
+
+    const addIndex = () => {
+        setIndex(indexVariable + 10);
+    }
+
+    const subtractIndex = () => {
+        setIndex(indexVariable - 10);
+    }
+
     return (
         <div className="main-wrap">
-            <header> 
-                <h1>Hello</h1>
-            </header>
             <p className="feed-text">NEWS</p>
             <div className="feed-wrap">
                 <form 
@@ -130,7 +122,7 @@ const FeedPage = () => {
             </div>
             <NewsAggregator
                 news={news}
-                x={indexVariable}
+                indexVariable={indexVariable}
                 addIndex={addIndex}
                 subtractIndex={subtractIndex}
             />

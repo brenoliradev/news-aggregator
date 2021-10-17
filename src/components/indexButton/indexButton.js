@@ -1,53 +1,48 @@
+import './indexButton.scss';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-const IndexButton = ({ x, addIndex, subtractIndex }) => {
-    if (x/10+1 === 1) {
+const IndexButton = ({ indexVariable, addIndex, subtractIndex }) => {
+    if (indexVariable/10+1 === 1) {
         return (
-            <div>
-                <button 
-                    onClick={subtractIndex}
-                    disabled
-                    >
-                    hey
-                </button>
-                <p>{x/10+1}</p>
-                <button 
+            <div className="panel-div">
+                <ArrowLeftIcon 
+                    fontSize="large"
+                    style={{color: 'transparent'}}
+                />
+                <p className='panel-text'>{indexVariable/10 + 1}</p>
+                <ArrowRightIcon 
                     onClick={addIndex}
-                    >
-                    hey
-                </button>
+                    fontSize="large"
+                />
             </div>
         )
-    } else if (x/10+1 > 1 && x/10+1 < 5) {
+    } else if (indexVariable/10+1 > 1 && indexVariable/10+1 < 5) {
         return (
-            <div>
-                <button 
+            <div className="panel-div">
+                <ArrowLeftIcon 
                     onClick={subtractIndex}
-                    >
-                    hey
-                </button>
-                <p>{x/10+1}</p>
-                <button 
+                    fontSize="large"
+                />
+                <p className='panel-text'>{indexVariable/10 + 1}</p>
+                <ArrowRightIcon 
                     onClick={addIndex}
-                    >
-                    hey
-                </button>
+                    fontSize="large"
+                />
             </div>
         )
-    } else if (x/10+1 === 5) {
+    } else if (indexVariable/10+1 === 5) {
         return (
-            <div>
-                <button 
+            <div className="panel-div">
+                <ArrowLeftIcon 
                     onClick={subtractIndex}
-                    >
-                    hey
-                </button>
-                <p>{x/10+1}</p>
-                <button 
-                    onClick={addIndex}
-                    disabled
-                    >
-                    hey
-                </button>
+                    fontSize="large"
+                />
+                <p className='panel-text'>{indexVariable/10 + 1}</p>
+                <ArrowRightIcon 
+                    fontSize="large"
+                    style={{color: 'transparent'}}
+                />
             </div>
         )
     }

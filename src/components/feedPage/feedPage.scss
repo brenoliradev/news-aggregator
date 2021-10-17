@@ -2,21 +2,14 @@
 
 .main-wrap {
     min-height: 100vh;
-    
-    header {
-        background-color: #020202;
-        min-height: 80px;
-    }
 
     .feed-text {
         font-size: 13vh;
-        font-weight: 300;
+        font-weight: 300; 
 
         font-family: 'Rosario', sans-serif;
 
         text-align: center;
-
-        margin-top: 2vh;
     }
 
         .feed-wrap {
@@ -40,13 +33,13 @@
                 .form-select {
                     padding-left: 5px;
                     height: 56px;
-                    width: 9vw;
+                    width: 10vw;
                 }
                 .form-button {
                     margin-top: -1px;
                     padding-left: 5px;
                     height: 55px;
-                    width: 9vw;
+                    width: 10vw;
                 }
             }
         }

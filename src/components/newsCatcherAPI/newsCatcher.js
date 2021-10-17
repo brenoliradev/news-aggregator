@@ -15,6 +15,7 @@ const NewsCatcher = async (subject, lang) => {
 
     const res = await axios.request(options)
         .then(function (response) {
+                console.log(response.data)
                 return (response.data);
             }).catch(function (error) { 
                 console.error(error);
