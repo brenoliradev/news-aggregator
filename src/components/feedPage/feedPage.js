@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import NewsCatcher from "../newsCatcherAPI/newsCatcher";
 import NewsAggregator from '../newsAggregator/newsAggregator';
-import NewsSearcher from '../newsSearcher.js/newsSearcher';
+
+import { Button, TextField, MenuItem } from '@mui/material';
+import { useFormik } from "formik";
+import * as Yup from 'yup'
 
 const FeedPage = () => {
     const [news, setNews] = useState([]);
     const [firstLoad, setLoadCount] = useState(0);
     const [indexVariable, setIndex] = useState(0);
+    const [lang, setLang] = useState("en");
 
     const callApi = (values, lang) => {
         NewsCatcher(values, lang)
@@ -32,9 +36,26 @@ const FeedPage = () => {
         }) 
     }
 
+    const SimpleSchema = Yup.object().shape({
+        subject: Yup.string()
+        .required("Required*"),
+    })
+
+    const formik = useFormik({
+        initialValues: {
+            subject: ''
+        },
+        validationSchema: SimpleSchema,
+        onSubmit: values => {
+            // callApi(values.subject, lang);
+            console.log(values.subject)
+            values.subject = "";
+        }
+    })
+
     if (firstLoad === 0) {
         // window.onload = callApi("technology", lang)
-        alert("fistLoad")
+        // alert("fistLoad")
         setLoadCount(1);
     }
 
@@ -46,9 +67,70 @@ const FeedPage = () => {
         setIndex(indexVariable - 10);
     }
 
+    const handleChange = event => {
+        setLang(event.target.value);
+    };
+
     return (
         <>
-            <NewsSearcher/>
+            <div className="main-wrap">
+                <header> 
+                    <h1>Hello</h1>
+                </header>
+                <p className="feed-text">NEWS</p>
+                <div className="feed-wrap">
+                    <form 
+                    className="feed-form"
+                    onSubmit={formik.handleSubmit}
+                    >
+                        <div className="form-textfield">
+                            <TextField 
+                                name="subject"
+                                variant='outlined'
+                                label="Search by subject, theme, personalitie..."
+                                type="text"
+                                value={formik.values.subject}
+                                onChange={formik.handleChange}
+                                error={Boolean(formik.errors.subject)}    
+                                helperText={formik.errors.subject}
+                                autoComplete="off"
+                                fullWidth
+                                style={{ height: "100%"}}
+                            />
+                        </div>
+                        <div className="form-responsive">
+                            <div className="form-select">
+                                <TextField
+                                    variant='outlined'
+                                    label="Language"
+                                    defaultValue="en"
+                                    onChange={handleChange}
+                                    select
+                                    fullWidth
+                                    style={{ height: "100%"}}
+                                >
+                                    <MenuItem value="en">English</MenuItem>
+                                    <MenuItem value="pt">Português</MenuItem>
+                                    <MenuItem value="es">Español</MenuItem>
+                                    <MenuItem value="fr">Français</MenuItem>
+                                </TextField>
+                            </div>
+                            <div className="form-button">
+                                <Button 
+                                    variant="contained"
+                                    type="submit"
+                                    fullWidth
+                                    style={{ height: "100%",
+                                    outline: "none"
+                                    }}
+                                >
+                                    Search!
+                                </Button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <NewsAggregator
                 news={news}
                 x={indexVariable}

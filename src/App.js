@@ -1,7 +1,7 @@
 import React from "react"
-import FeedPage from "./compoents/feedPage/feedPage";
+import FeedPage from "./components/feedPage/feedPage";
 
-import './';
+import './components/newsSearcher/newsSearcher.scss'
 
 const App = () => {
     return (
