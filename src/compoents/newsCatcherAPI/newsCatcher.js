@@ -13,16 +13,13 @@ const NewsCatcher = async (subject, lang) => {
         }
     };
 
-    axios.request(options)
-    .then(function (response) {
-            if (!response) return {};
-            if (typeof response === 'object') return (response);
-            if (typeof response === 'string') return JSON.parse(response);
-
-            return {};
-        }).catch(function (error) { 
-            console.error(error);
-    });
+    const res = await axios.request(options)
+        .then(function (response) {
+                return (response.data);
+            }).catch(function (error) { 
+                console.error(error);
+        });
+    return res;
 }
 
 export default NewsCatcher;
