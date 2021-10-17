@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css2?family=Rosario:wght@300&display=swap);
+
+.main-wrap {
+    min-height: 100vh;
+    
+    header {
+        background-color: #020202;
+        min-height: 80px;
+    }
+
+    .feed-text {
+        font-size: 13vh;
+        font-weight: 300;
+
+        font-family: 'Rosario', sans-serif;
+
+        text-align: center;
+
+        margin-top: 2vh;
+    }
+
+        .feed-wrap {
+        width: 100vw;
+
+        display: flex;
+        justify-content: center;
+
+        .feed-form {
+            display: flex;
+
+            padding-top: 3vh;
+            
+            .form-textfield {
+                width: 30vw;
+                height: 56px;
+            }
+            .form-responsive {
+                display: flex;
+            
+                .form-select {
+                    padding-left: 5px;
+                    height: 56px;
+                    width: 9vw;
+                }
+                .form-button {
+                    margin-top: -1px;
+                    padding-left: 5px;
+                    height: 55px;
+                    width: 9vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        min-height: 64px !important;
+    }
+    
+    .feed-text {
+        margin-bottom: 1vh !important;
+    }
+    
+    .feed-form {
+        flex-direction: column !important;
+
+        .form-textfield {
+            width: 90vw !important;
+        }
+        .form-responsive {
+            width: 90vw !important;
+            justify-content: space-between;
+
+            .form-select {
+                width: 58vw !important;
+                padding-left: 0px !important;
+                margin-top: 10px !important;
+            }
+            .form-button {
+                width: 31vw !important;
+                margin-top: 9px !important;
+            }
+        }
+    }
+}
