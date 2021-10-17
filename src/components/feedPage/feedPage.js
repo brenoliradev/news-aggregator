@@ -37,12 +37,13 @@ const FeedPage = () => {
             completeResponse.push(linksResponse);
             completeResponse.push(mediaResponse);
             setNews(completeResponse);   
+            console.log(news)
         }) 
     }
 
     if (firstLoad === 0) {
         // window.onload = callApi("technology", lang)
-        alert("fistLoad")
+        // alert("fistLoad")
         setLoadCount(1);
     }
 
